@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="calculator.css"> -->
+    <style>
+        *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+body{
+    background:linear-gradient(blue , skyblue , skyblue)no-repeat;
+    height: 96.5vh;
+
+}
+.structure{
+    max-width: 400px;
+    max-height: 700px;
+    margin: auto;
+    background-color: darkolivegreen;
+    color: #fff;
+    box-shadow: 5px 5px 15px black;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.cal-style {
+    width: 90%;
+    height: 80px;
+    margin: 0px auto;
+    padding-top: 20px;
+}
+.cal-style p {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 3px;
+    }
+.btn {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    padding: 40px 30px;
+}
+.btn button {
+    text-align: center;
+    font-size: 32px;
+    padding: 1px 29px;
+    border-radius: 4px;
+    height: 100%;
+    width: 24%;
+    margin: 5px 1px;
+    cursor: pointer;
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="structure">
+        <div class="cal-style">
+        <p></p>
+        </div>
+    <div class="btn">
+        
+        <button>*</button>
+        <button>/</button>
+        <button>-</button>
+        <button>+</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+        <button>.</button>
+        <button id="equal">=</button>
+        <button id="clear">C</button>
+        <button id="back">X</button>
+       
+    </div>
+    </div>
+    <script>
+
+        const display = document.querySelector(".cal-style p")
+        const buttons = document.querySelectorAll("button")
+
+        for(let i = 0 ; i<buttons.length ; i++){
+            buttons[i].onclick= function(){
+                if(buttons[i].innerHTML==="="){
+                    display.innerHTML = eval(display.innerHTML);
+                }else if(buttons[i].innerHTML === "C" ){
+                    display.innerHTML = "";
+                }else if (buttons[i].innerHTML === "X" ){
+                    display.innerHTML = display.innerHTML.slice(0,-1)
+                }else{
+                    display.innerHTML += buttons[i].innerHTML
+                }
+
+            }
+        }
+
+
+
+            
+
+    </script>
+</body>
+</html>
